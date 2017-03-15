@@ -4,12 +4,13 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+Security Platform Inc.
 
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jekyll" %} /
-[minima](https://github.com/jekyll/minima)
+Location: CONSEC C-7, GCCEI Bldg. 12, Daewangpangyo-ro 645beon-gil Bundang-gu, Seongnam-si, Gyeonggi-do, South Korea
 
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+E-mail: tech@securityplatform.co.kr | info@securityplatform.co.kr 
+
+Tel:    +82-70-7613-0094
+
+Fax:    +82-70-7613-0094
+
