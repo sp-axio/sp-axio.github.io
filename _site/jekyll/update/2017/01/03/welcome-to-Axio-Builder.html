@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Welcome to Axio Builder!</title>
+  <meta name="description" content="Setup for using Arduio IDE Because Axio Builder is not a built-in platform in the Arduino IDE, a series of tasks are required to develop an Axio Builder appl...">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/jekyll/update/2017/01/03/welcome-to-Axio-Builder.html">
+  <link rel="alternate" type="application/rss+xml" title="Axio Blog by Security Platform" href="/feed.xml">
+  
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Axio Blog by Security Platform</a>
+
+    <nav class="site-nav">
+      <span class="menu-icon">
+        <svg viewBox="0 0 18 15" width="18px" height="15px">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </span>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Welcome to Axio Builder!</h1>
+    <p class="post-meta"><time datetime="2017-01-03T15:50:47+09:00" itemprop="datePublished">Jan 3, 2017</time></p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h2 id="setup-for-using-arduio-ide">Setup for using Arduio IDE</h2>
+<ul>
+  <li>Because Axio Builder is not a built-in platform in the Arduino IDE, a series of tasks are required to develop an Axio Builder application using the Arduino IDE.</li>
+</ul>
+
+<h3 id="add-boards-manager-url">Add Boards Manager URL</h3>
+<ul>
+  <li>Axio Builder is an unofficial 3rd party platform for Arduino. It is not automatically listed in Arduino’s board manager.</li>
+  <li>To select the Axio Builder from the board manager, add the URL of the Axio builder in the ‘File -&gt; preferences -&gt; Settings(tab)’.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/sp-axio/axio-builder-binaries/master/mediawiki/images/arduino_ide_preferences.png" alt="arduino_ide_preferences" /></p>
+
+<ul>
+  <li>Copy following URL and paste to ‘Additional Boards Manager URLs:’.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">https</span><span class="ss">:/</span><span class="o">/</span><span class="n">raw</span><span class="p">.</span><span class="nf">githubusercontent</span><span class="p">.</span><span class="nf">com</span><span class="o">/</span><span class="n">sp</span><span class="o">-</span><span class="n">axio</span><span class="o">/</span><span class="n">axio</span><span class="o">-</span><span class="n">builder</span><span class="o">-</span><span class="n">binaries</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">package_axio_index</span><span class="p">.</span><span class="nf">json</span> </code></pre></figure>
+
+<h3 id="install-axio-builder-package">Install Axio Builder Package</h3>
+
+<ul>
+  <li>Open Boards Manager ‘Tools -&gt; Board -&gt; Boards Manager…’.
+<img src="https://raw.githubusercontent.com/sp-axio/axio-builder-binaries/master/mediawiki/images/arduino_ide_board_manager.png" alt="arduino_ide_board_manager" /></li>
+  <li>Click ‘Axio Builder Boards’ and click the ‘Install’ button.</li>
+</ul>
+
+<h3 id="install-private-key-for-signing-in-the-arduino-ide">Install Private Key for Signing in the Arduino IDE</h3>
+<ul>
+  <li>Axio Builder adds a signature to the firmware, to anti-forgery of the firmware.</li>
+  <li>To developing the firmware of Axio Builder in Arduino IDE, certificate must be installed in Arduino IDE and signing must be done.</li>
+  <li>The authentication algorithm uses prime256v1 among the elliptic curves.</li>
+  <li>Currently, the certificate type is not supported for signature verification, but is used simply as a public key.</li>
+  <li>If the EC prime256v1 key pair does not yet exist and is for testing purposes, you can generate ‘Elliptic Curve Key Pair’.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">-</span> <span class="no">Generate</span> <span class="no">Private</span> <span class="no">Key</span> <span class="p">(</span><span class="no">Curve</span><span class="p">:</span> <span class="n">prime256v1</span><span class="p">)</span>
+  <span class="err">$</span> <span class="n">openssl</span> <span class="n">ecparam</span> <span class="o">-</span><span class="n">genkey</span> <span class="o">-</span><span class="nb">name</span> <span class="n">prime256v1</span> <span class="o">-</span><span class="n">noout</span> <span class="o">-</span><span class="n">out</span> <span class="kp">private</span><span class="p">.</span><span class="nf">pem</span>
+<span class="o">-</span> <span class="no">Generate</span> <span class="no">Public</span> <span class="no">Key</span>
+  <span class="err">$</span> <span class="n">openssl</span> <span class="n">ec</span> <span class="o">-</span><span class="k">in</span> <span class="kp">private</span><span class="p">.</span><span class="nf">pem</span> <span class="o">-</span><span class="n">pubout</span> <span class="o">-</span><span class="n">out</span> <span class="kp">public</span><span class="p">.</span><span class="nf">pem</span> </code></pre></figure>
+
+<ul>
+  <li>If the EC prime256v1 key pair is ready, copy the private key to private.pem in the following directory.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">-</span> <span class="no">Linux</span>
+  <span class="p">{</span><span class="no">HOME</span> <span class="no">Directory</span><span class="p">}</span><span class="o">/</span><span class="p">.</span><span class="nf">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="no">SecurityPlatform</span><span class="o">/</span><span class="n">hardware</span><span class="o">/</span><span class="n">ms500</span><span class="o">/</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">variants</span><span class="o">/</span><span class="n">axio_builder_ms500</span> 
+<span class="o">-</span> <span class="no">Windows10</span>
+  <span class="p">{</span><span class="no">HOME</span> <span class="no">Directory</span><span class="p">}\</span><span class="no">AppData</span><span class="p">\</span><span class="no">Local</span><span class="p">\</span><span class="no">Arduino15</span><span class="p">\</span><span class="n">packages</span><span class="p">\</span><span class="no">SecurityPlatform</span><span class="p">\</span><span class="n">hardware</span><span class="p">\</span><span class="n">ms500</span><span class="p">\</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">\</span><span class="n">variants</span><span class="p">\</span><span class="n">axio_builder_ms500</span></code></pre></figure>
+
+<h3 id="certificate-download-to-axio-builder">Certificate download to Axio Builder</h3>
+<ul>
+  <li>To verify that the firmware has not been forgery during Axio Builder boots, the firmware must be signed and the certificate must be installed on the board.</li>
+  <li>Currently, the public key is used instead of the certificate type.</li>
+  <li>The certificate can only be downloaded once, and if there is a certificate on the board, it must be removed and then downloaded again.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">-</span> <span class="no">Remove</span> <span class="n">certificate</span>
+  <span class="err">$</span> <span class="n">axtool</span> <span class="o">-</span><span class="n">d</span> <span class="kp">private</span><span class="p">.</span><span class="nf">pem</span> <span class="p">[</span><span class="no">SERIAL_PORT</span><span class="p">]</span> 
+<span class="o">-</span> <span class="no">Download</span> <span class="n">certificate</span>
+  <span class="err">$</span> <span class="n">axtool</span> <span class="o">-</span><span class="n">i</span> <span class="kp">public</span><span class="p">.</span><span class="nf">pem</span> <span class="p">[</span><span class="no">SERIAL_PORT</span><span class="p">]</span> </code></pre></figure>
+
+<ul>
+  <li>Use ‘axtool’ to download/remove the public key to the board, which is located in the following directory if the Axio Builder package is installed in the IDE.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">-</span> <span class="no">Linux</span>
+  <span class="p">{</span><span class="no">HOME</span> <span class="no">Directory</span><span class="p">}</span><span class="o">/</span><span class="p">.</span><span class="nf">arduino15</span><span class="o">/</span><span class="n">packages</span><span class="o">/</span><span class="no">SecurityPlatform</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">axtool</span><span class="o">/</span><span class="mi">1</span><span class="o">.</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span> 
+<span class="o">-</span> <span class="no">Windows10</span>
+  <span class="p">{</span><span class="no">HOME</span> <span class="no">Directory</span><span class="p">}\</span><span class="no">AppData</span><span class="p">\</span><span class="no">Local</span><span class="p">\</span><span class="no">Arduino15</span><span class="p">\</span><span class="n">packages</span><span class="p">\</span><span class="no">SecurityPlatform</span><span class="p">\</span><span class="n">tools</span><span class="p">\</span><span class="n">axtool</span><span class="p">\</span><span class="mi">1</span><span class="o">.</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span> </code></pre></figure>
+
+<h2 id="development-of-application-with-arduino-ide">Development of Application with Arduino IDE</h2>
+<h3 id="compile--upload">compile &amp; upload</h3>
+<ul>
+  <li>You must specify the board type before ‘Verify/Compile’ or ‘Upload’ your application.</li>
+  <li>The board sets up ‘Tools -&gt; Board -&gt; Axio Builder Boards -&gt; Axio DK MS500’.</li>
+  <li>In order to upload, specify interface. select ‘Tools -&gt; Port’. ex)”COM0 (Axio DK MS500)”.</li>
+  <li>
+    <p>If you see the following screen during upload, press the Axio board reset button once.
+<img src="https://raw.githubusercontent.com/sp-axio/axio-builder-binaries/master/mediawiki/images/arduino_ide_upload.png" alt="arduino_ide_upload" /></p>
+  </li>
+  <li>When the following text appears, the firmware upload is completed.
+<img src="https://raw.githubusercontent.com/sp-axio/axio-builder-binaries/master/mediawiki/images/arduino_ide_upload_done.png" alt="arduino_ide_board_manager" /></li>
+</ul>
+
+<h3 id="update-second-loader">Update Second Loader</h3>
+<ul>
+  <li>The Second Loader is one of the bootloaders to be performed during the boot process.</li>
+  <li>In most cases you do not need an update, but if you need an update, you can do the following:</li>
+  <li>If you have installed the Axio Builder package in the IDE, then the Second Loader will install the Axio Builder package in the IDE.</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="p">{</span><span class="no">HOME</span> <span class="no">Directory</span><span class="p">}</span> <span class="p">\</span> <span class="no">AppData</span> <span class="p">\</span> <span class="no">Local</span> <span class="p">\</span> <span class="no">Arduino15</span> <span class="p">\</span> <span class="n">packages</span> <span class="p">\</span> <span class="no">Security_Platform</span> <span class="o">/</span> <span class="n">hardware</span> <span class="o">/</span> <span class="n">ms500</span> <span class="o">/</span> <span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span> <span class="o">/</span> <span class="n">bootloaders</span> <span class="o">/</span> <span class="n">axio_builder_ms500</span> <span class="p">\</span> <span class="no">SecurityPlatform</span> <span class="p">\</span> <span class="n">hardware</span> <span class="p">\</span> <span class="n">ms500</span> <span class="p">\</span> <span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span> <span class="p">\</span> <span class="n">bootloaders</span> <span class="p">\</span> <span class="n">axio_builder_ms500</span></code></pre></figure>
+
+<ul>
+  <li>If you want to update to a new second loader, you need to copy the new second loader to this directory first.</li>
+  <li>Set the programmer before updating. Select Menu ‘Tools -&gt; Programmer -&gt; Axio ISP’.</li>
+  <li>Now select Menu ‘Tools -&gt; Burn BootLoader’.</li>
+  <li>
+    <p>If you see the following screen, press the Axio board reset button once.
+<img src="https://raw.githubusercontent.com/sp-axio/axio-builder-binaries/master/mediawiki/images/arduino_ide_burn.png" alt="arduino_ide_burn" /></p>
+  </li>
+  <li>When the following text appears, the update is completed.
+<img src="https://raw.githubusercontent.com/sp-axio/axio-builder-binaries/master/mediawiki/images/arduino_ide_burn_done.png" alt="arduino_ide_burn_done" /></li>
+</ul>
+
+
+  </div>
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Axio Blog by Security Platform</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              Axio Blog by Security Platform
+            
+            </li>
+            
+            <li><a href="mailto:tech@securityplatform.co.kr">tech@securityplatform.co.kr</a></li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/sp-axio"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">sp-axio</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
