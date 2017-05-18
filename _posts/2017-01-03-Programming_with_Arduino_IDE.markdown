@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Welcome to Axio Builder!"
+title:  "Programming with Arduino IDE!"
 date:   2017-01-03 15:50:47 +0900
 categories: jekyll update
 ---
