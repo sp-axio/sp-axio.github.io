@@ -32,6 +32,8 @@ https://raw.githubusercontent.com/sp-axio/axio-builder-binaries/master/package_a
 * The authentication algorithm uses prime256v1 among the elliptic curves.
 * Currently, the certificate type is not supported for signature verification, but is used simply as a public key.
 * If the EC prime256v1 key pair does not yet exist and is for testing purposes, you can generate 'Elliptic Curve Key Pair'.
+#### ※ CAUTION! Be careful not to lose the keys you generate. ※
+
 {% highlight ruby %}
 - Generate Private Key (Curve: prime256v1)
   $ openssl ecparam -genkey -name prime256v1 -noout -out private.pem
