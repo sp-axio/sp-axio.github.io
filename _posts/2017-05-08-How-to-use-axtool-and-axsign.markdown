@@ -37,10 +37,14 @@ The authentication algorithm uses prime256v1 among the elliptic curves.
 Currently, the certificate type is not supported for signature verification, but is used simply as a public key.
 If the EC prime256v1 key pair does not yet exist and is for testing purposes, you can generate 'Elliptic Curve Key Pair'.
 * Generate Private Key (Curve: prime256v1)
-```openssl ecparam -genkey -name prime256v1 -noout -out private.pem```
+```
+openssl ecparam -genkey -name prime256v1 -noout -out private.pem
+```
 
 * Generate Public Key
-```openssl ec -in private.pem -pubout -out public.pem```
+```
+openssl ec -in private.pem -pubout -out public.pem
+```
 
 To verify that the firmware has not been forgery during Axio Builder boots, the firmware must be signed and the certificate must be installed on the board.
 The certificate can only be downloaded once, and if there is a certificate on the board, it must be removed and then downloaded again.
