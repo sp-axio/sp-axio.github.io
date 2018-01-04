@@ -24,16 +24,19 @@ tls_version tlsv1
 ```
 
 ## Preparing the mosquitto pub/sub.
-* Download [ArduinoMqtt_for_Axio](https://github.com/sp-axio/ArduinoMqtt_for_Axio) as zip file.
+* Download  [ESP8266_for_Axio](https://github.com/sp-axio/ESP8266_for_Axio), [Mbedtls_ESP8266_for_Axio](https://github.com/sp-axio/Mbedtls_ESP8266_for_Axio) and [ArduinoMqtt_for_Axio](https://github.com/sp-axio/ArduinoMqtt_for_Axio) as zip file.
 * In the arduino IDE, use the following procedure to add downloaded zip file.
-> * menu > Sketch > Include Library > Add .zip Library... > select 'ArduinoMqtt_for_Axio-master.zip' and click 'OK' button.
+> * menu > Sketch > Include Library > Add .zip Library... > select 'ESP8266_for_Axio.zip' and click 'OK' button.
+> * Do the same thing for the 'Mbedtls_ESP8266_for_Axio.zip' and 'ArduinoMqtt_for_Axio-master.zip'.
 * Open Mbedtls example as following procedure.
-> * menu > File > Examples > ArduinoMqtt_for_Axio > Examples > ConnectEsp8266WiFiClient
+> * menu > File > Examples > ArduinoMqtt_for_Axio > Examples > ConnectTLSEsp8266WiFiClient
 
 ## Run the mbedtls client.
 * Modify the following values in the example code to suit your development environment.
 > * ssid and password of your router to mySSID/myPSK.
 > * IP Address of your mosquitto server to destServer.
+* If you want to test the pub and sub of mqtt with one client.
+> MQTT_TOPIC_SUB = "test/" MQTT_ID "/sub" to MQTT_TOPIC_SUB = "test/" MQTT_ID "/pub"
 * Verify/Compile and Upload to Axio-Builder.
 * Open 'Serial Monitor' and check the result.
 ```

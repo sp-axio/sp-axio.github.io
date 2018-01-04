@@ -18,9 +18,10 @@
 ```
 
 ## Preparing the mbedtls client.
-* Download [Mbedtls_ESP8266_for_Axio](https://github.com/sp-axio/Mbedtls_ESP8266_for_Axio.git) as zip file.
+* Download [ESP8266_for_Axio](https://github.com/sp-axio/ESP8266_for_Axio) and [Mbedtls_ESP8266_for_Axio](https://github.com/sp-axio/Mbedtls_ESP8266_for_Axio) as zip file.
 * In the arduino IDE, use the following procedure to add downloaded zip file.
-> * menu > Sketch > Include Library > Add .zip Library... > select 'Mbedtls_ESP8266_for_Axio.zip' and click 'OK' button.
+> * menu > Sketch > Include Library > Add .zip Library... > select 'ESP8266_for_Axio.zip' and click 'OK' button.
+> * Do the same thing for the 'Mbedtls_ESP8266_for_Axio.zip'.
 * Open Mbedtls example as following procedure.
 > * menu > File > Examples > Mbedtls_ESP8266_for_Axio-master > Examples > Mbedtls_ESP8266_Client
 
